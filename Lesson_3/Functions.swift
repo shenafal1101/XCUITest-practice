@@ -3,6 +3,7 @@ import XCTest
 
 class Functions {
     
+    // Create provided amount of to-do items
     static func createItems(amount: Int) {
                     
             let app = XCUIApplication()
@@ -18,7 +19,7 @@ class Functions {
                 // Tap on Add button
                 app.navigationBars.descendants(matching: .button).element(boundBy: 2).tap()
                 
-                // Set title for todo item
+                // Set title for to-do item
                 let itemTitleField = app.textFields.firstMatch
                 itemTitleField.tap()
                 itemTitleField.typeText("Test Item \(i)")
@@ -32,11 +33,17 @@ class Functions {
             }
         }
     
+    // Calculate the normalized offset for the XCUICoordinate
     static func getCoordinates(x: CGFloat, y: CGFloat) -> XCUICoordinate {
         let app = XCUIApplication()
-        return app.coordinate(withNormalizedOffset: CGVector(
+        
+        // The normalized offset is a value between 0 and 1 representing a fraction of the app's frame width and height
+        let normalizedOffset = CGVector(
             dx: x < 1 ? x : x / app.frame.width,
             dy: y < 1 ? y : y / app.frame.height
-        ))
+        )
+        
+        // Return an XCUICoordinate object with the normalized offset
+        return app.coordinate(withNormalizedOffset: normalizedOffset)
     }
 }

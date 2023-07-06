@@ -1,6 +1,7 @@
 import Foundation
 import XCTest
 
+// Base class with common functionality
 class BaseScreen {
     let app = XCUIApplication()
     

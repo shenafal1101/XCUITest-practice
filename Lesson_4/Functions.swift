@@ -3,6 +3,7 @@ import XCTest
 
 class Functions {
     
+    // Custom method to create specified amount of to-do items
     static func createItems(amount: Int) {
                     
             let app = XCUIApplication()
@@ -27,6 +28,7 @@ class Functions {
             }
         }
     
+    // Custom method to clear to-do list (delete all items)
     static func deleteItems() {
         
         let app = XCUIApplication()
@@ -44,6 +46,7 @@ class Functions {
         }
     }
     
+    // Custom method to move the last to-do item from bottom to the top
     static func moveLastItemToTheTop() {
         
         let app = XCUIApplication()
@@ -61,11 +64,17 @@ class Functions {
         lastItemCoordinates.press(forDuration: 1, thenDragTo: searchBarCoordinates)
     }
     
+    // Calculate the normalized offset for the XCUICoordinate
     static func getCoordinates(x: CGFloat, y: CGFloat) -> XCUICoordinate {
         let app = XCUIApplication()
-        return app.coordinate(withNormalizedOffset: CGVector(
+        
+        // The normalized offset is a value between 0 and 1 representing a fraction of the app's frame width and height
+        let normalizedOffset = CGVector(
             dx: x < 1 ? x : x / app.frame.width,
             dy: y < 1 ? y : y / app.frame.height
-        ))
+        )
+        
+        // Return an XCUICoordinate object with the normalized offset
+        return app.coordinate(withNormalizedOffset: normalizedOffset)
     }
 }

@@ -1,6 +1,20 @@
+/*
+ 
+ Lesson 1:
+ 
+ - Basic interaction with elements
+ - Custom function to take and save sceenshots
+ 
+ XCTestCase
+ XCUIElement
+ XCUIApplication
+
+ */
+
 import XCTest
 
 class Lesson_1: XCTestCase {
+    
     let helper = Helper()
 
     override func setUpWithError() throws {
@@ -10,35 +24,48 @@ class Lesson_1: XCTestCase {
     override func tearDownWithError() throws {
         
     }
-
+    
+    /*
+     
+     Test case:
+     1. Launch the app
+     2. Add first to-do item
+     3. Add second to-do item with different picker wheel value
+     4. Delete to-do items
+     5. Back to main menu
+     
+     Save screenshot to attachment after each step
+     
+     */
+    
     func testExample() throws {
-        // Launch the app
+        
         let app = XCUIApplication()
-        app.launch()
-
-        app/*@START_MENU_TOKEN@*/.staticTexts["TODO"]/*[[".buttons[\"TODO\"].staticTexts[\"TODO\"]",".buttons[\"todo_demo\"].staticTexts[\"TODO\"]",".staticTexts[\"TODO\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let toDoListNavigationBar = app.navigationBars["To-Do list"]
-
         let addButton = toDoListNavigationBar.buttons["Add"]
-        
-        
-        // Add first note
-        addButton.tap()
-        
         let titleTextField = app.textFields["Title"]
+        let doneButton = app.keyboards.buttons["Done"]
+        let createButton = app.staticTexts["Create"]
+        let editButton = toDoListNavigationBar.buttons["Edit"]
+        let tablesQuery = app.tables
+        let deleteButton = tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        // Step 1
+        app.launch()
+        app/*@START_MENU_TOKEN@*/.staticTexts["TODO"]/*[[".buttons[\"TODO\"].staticTexts[\"TODO\"]",".buttons[\"todo_demo\"].staticTexts[\"TODO\"]",".staticTexts[\"TODO\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        sleep(1)
+        helper.takeScreenshot(screenshotName: "To-Do list screen is opened")
+        
+        // Step 2
+        addButton.tap()
         titleTextField.tap()
         titleTextField.typeText("Test1")
-        
-        let doneButton = app.keyboards.buttons["Done"]
         doneButton.tap()
-        
-        let createButton = app.staticTexts["Create"]
         createButton.tap()
         sleep(1)
         helper.takeScreenshot(screenshotName: "Test1 note is created")
-                        
-        // Add second note with another picker wheels value
+        
+        // Step 3
         addButton.tap()
         app.pickerWheels.element.adjust(toPickerWheelValue: "Home")
         sleep(1)
@@ -50,15 +77,9 @@ class Lesson_1: XCTestCase {
         sleep(1)
         helper.takeScreenshot(screenshotName: "Test2 note is created")
         
-        
-        // Delete notes
-        let editButton = toDoListNavigationBar.buttons["Edit"]
+        // Step 4
         editButton.tap()
-        
-        let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.cells.buttons["Delete Test1"]/*[[".cells.buttons[\"Delete Test1\"]",".buttons[\"Delete Test1\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
-        
-        let deleteButton = tablesQuery/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         deleteButton.tap()
         sleep(1)
         helper.takeScreenshot(screenshotName: "Test1 note is deleted")
@@ -66,9 +87,9 @@ class Lesson_1: XCTestCase {
         deleteButton.tap()
         sleep(1)
         helper.takeScreenshot(screenshotName: "Test2 note is deleted")
-        toDoListNavigationBar.buttons["Done"].tap()
         
-        // Back to main menu
+        // Step 5
+        toDoListNavigationBar.buttons["Done"].tap()
         let backButton = toDoListNavigationBar.buttons["Back"]
         backButton.tap()
         sleep(1)

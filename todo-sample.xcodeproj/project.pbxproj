@@ -52,13 +52,6 @@
 			remoteGlobalIDString = FAFECEEB205C2B1D003BB41B;
 			remoteInfo = Demo;
 		};
-		CBE68C742A3F0B83001877FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAFECEE4205C2B1D003BB41B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAFECEEB205C2B1D003BB41B;
-			remoteInfo = Demo;
-		};
 		CBE9270E2A41CDD000C58BE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAFECEE4205C2B1D003BB41B /* Project object */;
@@ -95,7 +88,6 @@
 		CB7F5EEC29CC37D400188B73 /* Lesson_3.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lesson_3.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7F5EEE29CC37D400188B73 /* Lesson_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson_3.swift; sourceTree = "<group>"; };
 		CB7F5EF029CC37D400188B73 /* Lesson_3LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson_3LaunchTests.swift; sourceTree = "<group>"; };
-		CBE68C6E2A3F0B83001877FB /* Lesson_5.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lesson_5.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF4350329643879009B1F50 /* Lesson_2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lesson_2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF435052964387A009B1F50 /* Lesson_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson_2.swift; sourceTree = "<group>"; };
 		CBF435072964387A009B1F50 /* Lesson_2LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson_2LaunchTests.swift; sourceTree = "<group>"; };
@@ -129,13 +121,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CB7F5EE929CC37D400188B73 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBE68C6B2A3F0B83001877FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,7 +220,6 @@
 				CBF4350329643879009B1F50 /* Lesson_2.xctest */,
 				CB7F5EEC29CC37D400188B73 /* Lesson_3.xctest */,
 				CB3CF4C22A05088E00B3469F /* Lesson_4.xctest */,
-				CBE68C6E2A3F0B83001877FB /* Lesson_5.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,24 +298,6 @@
 			productReference = CB7F5EEC29CC37D400188B73 /* Lesson_3.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		CBE68C6D2A3F0B83001877FB /* Lesson_5 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CBE68C762A3F0B83001877FB /* Build configuration list for PBXNativeTarget "Lesson_5" */;
-			buildPhases = (
-				CBE68C6A2A3F0B83001877FB /* Sources */,
-				CBE68C6B2A3F0B83001877FB /* Frameworks */,
-				CBE68C6C2A3F0B83001877FB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CBE68C752A3F0B83001877FB /* PBXTargetDependency */,
-			);
-			name = Lesson_5;
-			productName = Lesson_5;
-			productReference = CBE68C6E2A3F0B83001877FB /* Lesson_5.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		CBF4350229643879009B1F50 /* Lesson_2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBF4350D2964387A009B1F50 /* Build configuration list for PBXNativeTarget "Lesson_2" */;
@@ -391,11 +357,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = FAFECEEB205C2B1D003BB41B;
 					};
-					CBE68C6D2A3F0B83001877FB = {
-						CreatedOnToolsVersion = 14.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FAFECEEB205C2B1D003BB41B;
-					};
 					CBF4350229643879009B1F50 = {
 						CreatedOnToolsVersion = 13.2.1;
 						ProvisioningStyle = Automatic;
@@ -425,7 +386,6 @@
 				CBF4350229643879009B1F50 /* Lesson_2 */,
 				CB7F5EEB29CC37D400188B73 /* Lesson_3 */,
 				CB3CF4C12A05088E00B3469F /* Lesson_4 */,
-				CBE68C6D2A3F0B83001877FB /* Lesson_5 */,
 			);
 		};
 /* End PBXProject section */
@@ -446,13 +406,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CB7F5EEA29CC37D400188B73 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBE68C6C2A3F0B83001877FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -516,13 +469,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBE68C6A2A3F0B83001877FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CBF434FF29643879009B1F50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -558,11 +504,6 @@
 			isa = PBXTargetDependency;
 			target = FAFECEEB205C2B1D003BB41B /* todo-sample */;
 			targetProxy = CB7F5EF229CC37D400188B73 /* PBXContainerItemProxy */;
-		};
-		CBE68C752A3F0B83001877FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAFECEEB205C2B1D003BB41B /* todo-sample */;
-			targetProxy = CBE68C742A3F0B83001877FB /* PBXContainerItemProxy */;
 		};
 		CBE9270F2A41CDD000C58BE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -740,55 +681,6 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Lesson-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "todo-sample";
-			};
-			name = Release;
-		};
-		CBE68C772A3F0B83001877FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Lesson-5";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "todo-sample";
-			};
-			name = Debug;
-		};
-		CBE68C782A3F0B83001877FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Lesson-5";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1021,15 +913,6 @@
 			buildConfigurations = (
 				CB7F5EF429CC37D400188B73 /* Debug */,
 				CB7F5EF529CC37D400188B73 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBE68C762A3F0B83001877FB /* Build configuration list for PBXNativeTarget "Lesson_5" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBE68C772A3F0B83001877FB /* Debug */,
-				CBE68C782A3F0B83001877FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

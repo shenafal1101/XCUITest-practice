@@ -1,6 +1,21 @@
+/*
+ 
+ Lesson 2:
+ 
+ - Create custom logger
+ - Working with XCUIElementQuery class
+ 
+ XCTestCase
+ XCUIApplication
+ XCUIElementQuery
+ NSPredicate
+ 
+ */
+
 import XCTest
 
 class Lesson_2: XCTestCase {
+    
     let logger: Logger = Logger()
     let app = XCUIApplication()
     
@@ -12,94 +27,144 @@ class Lesson_2: XCTestCase {
         logger.saveLogs()
     }
     
+    /*
+     
+     Test case 1:
+     1. Launch the app
+     2. Open To-Do list screen
+     3. Add one to-do item
+     
+     Using:
+     - matching
+     - .descendants
+     - .firstMatch / .boundBy
+     
+     */
+    
     func testCreateItem() {
+        
+        let toDoButton = app.buttons.matching(identifier: "todo_demo").firstMatch
+        let itemTitleField = app.textFields.firstMatch
+        let createButton = app.buttons.matching(NSPredicate(format: "label == \"Create\"")).firstMatch
+        
+        // Step 1
         app.launch()
         
-        // Open To-Do list screen
-        let toDoButton = app.buttons.matching(identifier: "todo_demo").firstMatch
+        // Step 2
         toDoButton.tap()
         sleep(1)
 
-        // Tap on Add button
+        // Step 3
         app.navigationBars.descendants(matching: .button).element(boundBy: 2).tap()
-        
-        // Set title for todo item
-        let itemTitleField = app.textFields.firstMatch
         itemTitleField.tap()
         itemTitleField.typeText("Test Item")
-        // Close keyboard
         app.keyboards.buttons["Done"].tap()
-        
-        // Tap on Create button
-        let createButton = app.buttons.matching(NSPredicate(format: "label == \"Create\"")).firstMatch
         createButton.tap()
     }
     
+    /*
+     
+     Test case 2:
+     1. Launch the app
+     2. Open To-Do list screen
+     3. Add one to-do item with different picker wheel value
+     
+     Using:
+     - matching
+     - .descendants
+     - .firstMatch / .boundBy
+     - pickerWheel.adjust
+     
+     */
     
     func testPickerWheel() {
         
+        let toDoButton = app.buttons.matching(identifier: "todo_demo").firstMatch
+        let itemTitleField = app.textFields.firstMatch
+        let pickerWheel = app.pickerWheels.firstMatch
+        let createButton = app.buttons.matching(NSPredicate(format: "label == \"Create\"")).firstMatch
+
+        // Step 1
         app.launch()
         
-        // Open To-Do list screen
-        let toDoButton = app.buttons.matching(identifier: "todo_demo").firstMatch
+        // Step 2
         toDoButton.tap()
         sleep(1)
 
-        // Tap on Add button
+        // Step 3
         app.navigationBars.descendants(matching: .button).element(boundBy: 2).tap()
-        
-        // Set title for todo item
-        let itemTitleField = app.textFields.firstMatch
         itemTitleField.tap()
         itemTitleField.typeText("Test Item 2")
-        // Close keyboard
         app.keyboards.buttons["Done"].tap()
         sleep(1)
-        
-        // Change picker wheel value
-        let pickerWheel = app.pickerWheels.firstMatch
         pickerWheel.adjust(toPickerWheelValue: "Health")
-        
-        // Tap on Create button
-        let createButton = app.buttons.matching(NSPredicate(format: "label == \"Create\"")).firstMatch
         createButton.tap()
     }
     
+    /*
+     
+     Test case 3:
+     1. Launch Settings app by bundleIdentifier
+     2. Find first Table element
+     3. Get Cells array from Table element
+     4. Get all .staticText elements from Cells array
+     5. Save each label of .staticText element to logs via custom logger
+     
+     Using:
+     - bundleIdentifier
+     - matching
+     - .children
+     - .tebles / .cell
+     - .firstMatch / .boundBy
+     
+     */
+    
     func testSettingsLabels() {
         
-        // Run Settings app
+        // Step 1
         let settingsApp = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
-        settingsApp.activate()
+        settingsApp.launch()
         
-        // Finding first Table element
+        // Step 2
         let tableFirstElement = settingsApp.tables.element(boundBy: 0).firstMatch
         
-        // Getting Cells array from Table element
+        // Step 3
         let cellArray = tableFirstElement.children(matching: .cell)
         
-        // Getting all .staticText elements from Cells array
+        // Step 4
         let staticTextElements = cellArray.children(matching: .staticText)
         
-        // Getting labels from each .staticText element
+        // Step 5
         let allLabels = staticTextElements.allElementsBoundByAccessibilityElement
-        
-        // Saving each label in logs
         for element in allLabels {
                 logger.log(message: element.label)
             }
-        
         }
     
+    /*
+     
+     Test case 4:
+     1. Launch Demo app
+     2. Get all .staticText elements from main screen
+     3. Save all labels of .staticText elements to logs via custom logger
+     
+     Using:
+     - matching
+     - .descendants
+     */
+    
     func testLogDemoText() {
-        app.activate()
         
-        // Getting all .staticText elements from main screen
+        // Step 1
+        app.launch()
+        
+        // Step 2
         let demoStaticTexts = app.descendants(matching: .staticText).allElementsBoundByAccessibilityElement
         
-        // Saving all labels of .staticText elements to logs
+        // Step 3
         for element in demoStaticTexts {
             logger.log(message: element.label)
         }
     }
 
-    }
+}

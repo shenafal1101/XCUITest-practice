@@ -65,8 +65,6 @@ class ToDoScreen: BaseScreen {
         XCTAssertTrue(itemIsFound, "There no items contain entered text")
     }
     
-    
-    
     //MARK: - Steps
     func tapAddBtn() {
         addBtn().tap()
